@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dilemmes — jeu de choix moraux</title>
+  <meta name="description" content="Un jeu de dilemmes moraux : enchaînez des choix de vie ou de mort et découvrez votre profil.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main id="app">
+
+    <!-- 1. Accueil -->
+    <section class="ecran" id="ecran-accueil" tabindex="-1" aria-labelledby="titre-accueil">
+      <div class="carte carte-centree">
+        <p class="surtitre">Jeu de choix moraux</p>
+        <h1 id="titre-accueil">Dilemmes</h1>
+        <p class="accroche">Quand il n'y a pas de bonne solution, comment choisissez-vous ?</p>
+        <p class="duree"><span id="nb-dilemmes">Quelques</span> situations · environ 10 à 15 minutes</p>
+        <button type="button" class="bouton bouton-principal" data-action="commencer">Commencer</button>
+      </div>
+    </section>
+
+    <!-- 2. Avertissement -->
+    <section class="ecran" id="ecran-avertissement" tabindex="-1" aria-labelledby="titre-avertissement" hidden>
+      <div class="carte">
+        <h2 id="titre-avertissement">Avant de commencer</h2>
+        <ul class="liste-avertissement">
+          <li>Ce jeu présente des <strong>situations de vie ou de mort</strong>. Elles sont entièrement fictives et décrites sans détails choquants.</li>
+          <li><strong>Il n'y a pas de bonne réponse.</strong> Le jeu ne vous juge pas : il décrit vos tendances.</li>
+          <li><strong>Aucune donnée n'est envoyée</strong> : tout reste dans votre navigateur et disparaît quand vous fermez la page.</li>
+          <li>Une fois un choix validé, vous ne pourrez pas revenir en arrière. Certaines situations sont minutées : vous en serez prévenu.</li>
+        </ul>
+        <div class="actions">
+          <button type="button" class="bouton bouton-principal" data-action="vers-infos">J'ai compris</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Informations facultatives -->
+    <section class="ecran" id="ecran-infos" tabindex="-1" aria-labelledby="titre-infos" hidden>
+      <form class="carte" id="formulaire-infos" novalidate>
+        <h2 id="titre-infos">Quelques informations (facultatif)</h2>
+        <p class="aide">Ces réponses sont facultatives et restent dans votre navigateur. Elles ne sont ni envoyées, ni conservées.</p>
+
+        <div class="champ">
+          <label for="champ-age">Tranche d'âge</label>
+          <select id="champ-age" name="age">
+            <option value="">—</option>
+            <option value="moins-18">Moins de 18 ans</option>
+            <option value="18-24">18-24 ans</option>
+            <option value="25-34">25-34 ans</option>
+            <option value="35-49">35-49 ans</option>
+            <option value="50-64">50-64 ans</option>
+            <option value="65-plus">65 ans et plus</option>
+            <option value="nsp">Je préfère ne pas répondre</option>
+          </select>
+        </div>
+
+        <div class="champ">
+          <label for="champ-situation">Situation</label>
+          <select id="champ-situation" name="situation">
+            <option value="">—</option>
+            <option value="etudes">En études</option>
+            <option value="activite">En activité</option>
+            <option value="recherche">En recherche d'emploi</option>
+            <option value="retraite">Retraité ou retraitée</option>
+            <option value="autre">Autre</option>
+            <option value="nsp">Je préfère ne pas répondre</option>
+          </select>
+        </div>
+
+        <div class="champ" id="bloc-niveau" hidden>
+          <label for="champ-niveau">Niveau d'études</label>
+          <select id="champ-niveau" name="niveau">
+            <option value="">—</option>
+            <option value="college">Collège</option>
+            <option value="lycee">Lycée</option>
+            <option value="bac1-3">Bac+1 à Bac+3</option>
+            <option value="bac4-plus">Bac+4 et plus</option>
+            <option value="nsp">Je préfère ne pas répondre</option>
+          </select>
+        </div>
+
+        <div class="champ" id="bloc-categorie" hidden>
+          <label for="champ-categorie">Catégorie professionnelle</label>
+          <select id="champ-categorie" name="categorie">
+            <option value="">—</option>
+            <option value="employe">Employé ou employée</option>
+            <option value="ouvrier">Ouvrier ou ouvrière</option>
+            <option value="cadre">Cadre</option>
+            <option value="intermediaire">Profession intermédiaire</option>
+            <option value="independant">Indépendant ou indépendante</option>
+            <option value="autre">Autre</option>
+            <option value="nsp">Je préfère ne pas répondre</option>
+          </select>
+        </div>
+
+        <div class="actions actions-egales">
+          <button type="button" class="bouton bouton-secondaire" data-action="passer">Passer</button>
+          <button type="submit" class="bouton bouton-principal">Continuer</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- 4. Dilemmes -->
+    <section class="ecran" id="ecran-dilemme" tabindex="-1" aria-labelledby="titre-dilemme" hidden>
+      <div class="carte">
+        <div class="progression">
+          <span id="progression-texte" aria-live="polite"></span>
+          <div class="progression-barre" aria-hidden="true"><div id="progression-remplissage"></div></div>
+        </div>
+        <h2 id="titre-dilemme"></h2>
+        <div id="minuteur" class="minuteur" hidden>
+          <p class="minuteur-annonce" id="minuteur-annonce"></p>
+          <div class="minuteur-ligne">
+            <div class="minuteur-barre" aria-hidden="true"><div id="minuteur-remplissage"></div></div>
+            <span class="minuteur-secondes" id="minuteur-secondes" role="timer" aria-live="off"></span>
+          </div>
+          <p class="sr-only" id="minuteur-alerte" aria-live="assertive"></p>
+        </div>
+        <p id="texte-dilemme" class="texte-dilemme"></p>
+        <div id="options" class="options" role="group" aria-labelledby="titre-dilemme"></div>
+      </div>
+    </section>
+
+    <!-- 5. Résultats -->
+    <section class="ecran" id="ecran-resultats" tabindex="-1" aria-labelledby="nom-profil" hidden>
+      <div class="carte">
+        <p class="surtitre">Votre profil</p>
+        <h2 id="nom-profil"></h2>
+        <p id="description-profil" class="description-profil"></p>
+
+        <div class="radar-conteneur">
+          <canvas id="radar" role="img" aria-label="Diagramme radar de vos scores sur 8 axes"></canvas>
+        </div>
+        <ul id="liste-scores" class="liste-scores"></ul>
+
+        <div class="bloc-resultat" id="bloc-instinct">
+          <h3 id="titre-instinct">Instinctif ou réfléchi</h3>
+          <div class="curseur" role="meter" aria-labelledby="titre-instinct" aria-valuemin="0" aria-valuemax="100">
+            <span class="curseur-borne">Instinctif</span>
+            <div class="curseur-piste"><div class="curseur-pastille"></div></div>
+            <span class="curseur-borne">Réfléchi</span>
+          </div>
+          <p class="curseur-texte"></p>
+        </div>
+
+        <div class="bloc-resultat" id="bloc-coherence">
+          <h3><span id="titre-coherence">Cohérence</span> : <span class="jauge-valeur"></span></h3>
+          <div class="jauge" role="meter" aria-labelledby="titre-coherence" aria-valuemin="0" aria-valuemax="100">
+            <div class="jauge-remplissage"></div>
+          </div>
+          <p class="jauge-texte"></p>
+        </div>
+
+        <div class="bloc-resultat" id="bloc-textes">
+          <h3>Ce qui ressort de vos choix</h3>
+          <ul id="textes-marques" class="textes-marques"></ul>
+        </div>
+
+        <div class="actions actions-egales">
+          <button type="button" class="bouton bouton-secondaire" data-action="telecharger">Télécharger mon profil</button>
+          <button type="button" class="bouton bouton-principal" data-action="rejouer">Rejouer</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Erreur de chargement -->
+    <section class="ecran" id="ecran-erreur" tabindex="-1" hidden>
+      <div class="carte">
+        <h2>Le jeu n'a pas pu se charger</h2>
+        <p id="message-erreur"></p>
+        <p class="aide">Si vous avez ouvert le fichier directement, lancez plutôt un serveur local (<code>python -m http.server 8000</code>) puis ouvrez <code>http://localhost:8000</code>.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="lib/chart.umd.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+[
+  {
+    "id": "aiguillage",
+    "titre": "L'aiguillage",
+    "texte": "Vous travaillez seul dans un poste d'aiguillage, au bord d'une voie ferrée. Un wagon de marchandises s'est détaché et dévale la pente sans freins. Sur la voie principale, cinq ouvriers réparent les rails, un casque antibruit sur les oreilles : ils ne l'entendront pas arriver. Vous pouvez actionner l'aiguillage pour envoyer le wagon sur une voie secondaire, où travaille un seul ouvrier, lui aussi dos à la pente. Il n'y a pas d'autre solution, et plus le temps de prévenir qui que ce soit.",
+    "options": [
+      {
+        "id": "agir",
+        "libelle": "Actionner l'aiguillage",
+        "passive": false,
+        "points": { "utilitarisme": 2, "principes": -1, "interventionnisme": 2 }
+      },
+      {
+        "id": "rien",
+        "libelle": "Ne pas toucher à l'aiguillage",
+        "passive": true,
+        "points": { "principes": 1, "interventionnisme": -2 }
+      }
+    ],
+    "jumeau": { "groupe": "sacrifice-1-pour-5", "logique": { "agir": "A", "rien": "B" } },
+    "minuteur": null
+  },
+  {
+    "id": "cagnotte",
+    "titre": "La cagnotte",
+    "texte": "Une association vous confie la répartition d'un don important. Deux demandes restent sur votre bureau. La première vient des parents d'une fillette de six ans, dont vous avez vu la photo et lu la lettre : sans une opération coûteuse à l'étranger, elle ne survivra pas. La seconde concerne un programme de vaccination dans une région isolée, qui sauverait, selon les estimations, une dizaine d'enfants dont vous ne connaîtrez jamais le nom. L'argent ne suffit que pour l'une des deux demandes.",
+    "options": [
+      {
+        "id": "vaccination",
+        "libelle": "Financer la vaccination",
+        "passive": false,
+        "points": { "utilitarisme": 2, "empathie": -1 }
+      },
+      {
+        "id": "fillette",
+        "libelle": "Financer l'opération de la fillette",
+        "passive": false,
+        "points": { "empathie": 2, "utilitarisme": -1 }
+      }
+    ],
+    "jumeau": { "groupe": "visage-ou-nombre", "logique": { "vaccination": "A", "fillette": "B" } },
+    "minuteur": null
+  },
+  {
+    "id": "accident",
+    "titre": "Le soir de l'accident",
+    "texte": "Vous rentrez de soirée en voiture avec votre meilleur ami, qui conduit. Il a bu plus que de raison. Dans un virage, il percute un cycliste. Les secours arrivent vite : le cycliste est grièvement blessé, sa vie est en jeu. Avant l'arrivée de la police, votre ami vous supplie : si vous dites qu'il n'avait pas bu et que le cycliste roulait sans lumière, il évitera la prison. Il a deux jeunes enfants. Personne d'autre n'a assisté à la scène.",
+    "options": [
+      {
+        "id": "couvrir",
+        "libelle": "Confirmer sa version",
+        "passive": false,
+        "points": { "loyaute": 2, "autorite": -2, "justice": -2, "principes": -1 }
+      },
+      {
+        "id": "verite",
+        "libelle": "Raconter ce que vous avez vu",
+        "passive": false,
+        "points": { "loyaute": -2, "autorite": 1, "justice": 2, "principes": 1 }
+      },
+      {
+        "id": "silence",
+        "libelle": "Dire que vous n'avez rien vu",
+        "passive": true,
+        "points": { "loyaute": 1, "justice": -1, "principes": -1, "interventionnisme": -1 }
+      }
+    ],
+    "minuteur": null
+  },
+  {
+    "id": "traitement",
+    "titre": "Le traitement",
+    "texte": "Vous dirigez un dispensaire isolé. Dix patients ont contracté une infection foudroyante. Vous disposez de deux traitements, et vous ne pouvez en utiliser qu'un seul. Le premier est éprouvé : il sauvera à coup sûr quatre patients, les six autres n'y survivront pas. Le second est plus récent : selon les études, il a une chance sur deux de sauver huit patients, et une chance sur deux de n'en sauver aucun. Les patients sont inconscients et vous devez décider maintenant.",
+    "options": [
+      {
+        "id": "eprouve",
+        "libelle": "Le traitement éprouvé",
+        "passive": false,
+        "points": { "risque": -2 }
+      },
+      {
+        "id": "nouveau",
+        "libelle": "Le nouveau traitement",
+        "passive": false,
+        "points": { "risque": 2 }
+      }
+    ],
+    "minuteur": null
+  },
+  {
+    "id": "respirateur",
+    "titre": "Le dernier respirateur",
+    "texte": "Vous êtes médecin aux urgences d'un petit hôpital. Il ne reste qu'un seul respirateur. Deux blessés du même accident arrivent en même temps, avec exactement les mêmes chances de survie. Le premier conduisait sous l'emprise de l'alcool et a provoqué la collision. La seconde est la conductrice qu'il a percutée. Sans respirateur, la personne que vous ne choisirez pas ne passera probablement pas la nuit. Le règlement de l'hôpital ne prévoit rien pour départager deux patients dans ce cas.",
+    "options": [
+      {
+        "id": "victime",
+        "libelle": "Le donner à la conductrice percutée",
+        "passive": false,
+        "points": { "justice": 2, "principes": -1 }
+      },
+      {
+        "id": "hasard",
+        "libelle": "Tirer au sort entre les deux",
+        "passive": false,
+        "points": { "principes": 1, "justice": -2 }
+      }
+    ],
+    "jumeau": { "groupe": "responsabilite", "logique": { "victime": "A", "hasard": "B" } },
+    "minuteur": null
+  },
+  {
+    "id": "essai",
+    "titre": "L'essai",
+    "texte": "Vous êtes médecin dans un service de réanimation. Une épidémie grave touche la région et aucun traitement n'existe. Votre équipe a mis au point un produit prometteur, mais il n'a jamais été testé sur un être humain. Un patient inconscient, sans famille joignable, présente exactement le profil nécessaire. L'essayer sur lui sans son accord pourrait, si cela fonctionne, sauver des centaines de vies dans les semaines à venir. Cela pourrait aussi lui coûter la vie. La loi interdit tout essai sans consentement.",
+    "options": [
+      {
+        "id": "essayer",
+        "libelle": "Essayer le produit sur lui",
+        "passive": false,
+        "points": { "utilitarisme": 2, "principes": -2, "autorite": -2, "risque": 2, "interventionnisme": 1 }
+      },
+      {
+        "id": "attendre",
+        "libelle": "Attendre un essai autorisé",
+        "passive": true,
+        "points": { "principes": 2, "autorite": 1, "risque": -1, "interventionnisme": -1 }
+      }
+    ],
+    "minuteur": null
+  },
+  {
+    "id": "incendie",
+    "titre": "L'incendie",
+    "texte": "Un incendie se déclare dans votre immeuble, en pleine nuit. En traversant le couloir enfumé, vous comprenez que vous n'aurez le temps d'ouvrir qu'une seule porte avant que les flammes ne bloquent le passage. Derrière la première, votre frère, coincé dans sa chambre. Derrière la seconde, deux enfants que vous ne connaissez pas, seuls dans l'appartement. Vous entendez les sirènes des pompiers, mais ils n'arriveront pas assez vite, ni pour les uns, ni pour les autres.",
+    "options": [
+      {
+        "id": "frere",
+        "libelle": "Ouvrir la porte de votre frère",
+        "passive": false,
+        "points": { "loyaute": 2, "utilitarisme": -1 }
+      },
+      {
+        "id": "enfants",
+        "libelle": "Ouvrir la porte des enfants",
+        "passive": false,
+        "points": { "loyaute": -2, "utilitarisme": 1, "empathie": 1 }
+      }
+    ],
+    "minuteur": null
+  },
+  {
+    "id": "alerte",
+    "titre": "L'alerte",
+    "texte": "Vous êtes de garde, la nuit, au poste de surveillance d'un barrage. Un capteur signale une fissure possible. Selon vos calculs, il y a environ une chance sur trois qu'elle soit réelle. Déclencher l'évacuation de la ville en aval, c'est jeter deux mille personnes sur des routes de montagne en pleine nuit : il y aura sans doute des accidents, peut-être des victimes. Attendre l'équipe d'inspection, prévue à l'aube, c'est parier que le capteur se trompe. Le protocole vous laisse seul juge.",
+    "options": [
+      {
+        "id": "evacuer",
+        "libelle": "Déclencher l'évacuation",
+        "passive": false,
+        "points": { "interventionnisme": 2, "risque": -2 }
+      },
+      {
+        "id": "attendre",
+        "libelle": "Attendre l'inspection de l'aube",
+        "passive": true,
+        "points": { "interventionnisme": -2, "risque": 2 }
+      }
+    ],
+    "minuteur": null
+  },
+  {
+    "id": "vanne",
+    "titre": "La vanne",
+    "texte": "Une crue soudaine menace la vallée. Vous êtes de garde dans la petite centrale hydraulique. L'eau va bientôt submerger le camping en contrebas, où cinq personnes dorment dans un camping-car resté sur place malgré l'alerte. Vous pouvez ouvrir une vanne qui détournera le flot vers un ancien moulin isolé. Vous savez qu'un homme y vit seul et qu'il n'aura pas le temps de partir. Le niveau monte vite : dans quelques secondes, il sera trop tard pour décider.",
+    "options": [
+      {
+        "id": "ouvrir",
+        "libelle": "Ouvrir la vanne",
+        "passive": false,
+        "points": { "utilitarisme": 2, "principes": -1, "interventionnisme": 2 }
+      },
+      {
+        "id": "rien",
+        "libelle": "Laisser la vanne fermée",
+        "passive": true,
+        "points": { "principes": 1, "interventionnisme": -2 }
+      }
+    ],
+    "jumeau": { "groupe": "sacrifice-1-pour-5", "logique": { "ouvrir": "A", "rien": "B" } },
+    "minuteur": 20
+  },
+  {
+    "id": "secret",
+    "titre": "Le secret",
+    "texte": "Une maladie très contagieuse se répand dans le pays. Un décret d'urgence oblige les médecins à transmettre aux autorités le nom de chaque malade. Vous êtes médecin. Un patient vous supplie de ne pas le déclarer : il vit sans papiers et craint d'être renvoyé dans un pays où sa vie est menacée. Vous lui aviez promis le secret avant la publication du décret. Il s'engage à rester isolé chez lui et à suivre scrupuleusement le traitement.",
+    "options": [
+      {
+        "id": "declarer",
+        "libelle": "Le déclarer aux autorités",
+        "passive": false,
+        "points": { "autorite": 2, "principes": -2, "utilitarisme": 1, "interventionnisme": 1 }
+      },
+      {
+        "id": "taire",
+        "libelle": "Garder le secret",
+        "passive": true,
+        "points": { "autorite": -2, "principes": 2, "empathie": 1, "interventionnisme": -1 }
+      }
+    ],
+    "minuteur": null
+  },
+  {
+    "id": "vedette",
+    "titre": "La vedette",
+    "texte": "Vous pilotez une vedette de secours après un naufrage, de nuit. À quelques mètres de vous, un adolescent agrippé à une bouée vous appelle ; vous voyez son visage dans le faisceau de votre lampe. Plus loin, la radio signale un canot retourné auquel s'accrochent six personnes à bout de forces. Si vous vous arrêtez pour hisser l'adolescent à bord, vous arriverez trop tard pour le canot. Un autre bateau atteindra le secteur, mais pas avant une demi-heure.",
+    "options": [
+      {
+        "id": "canot",
+        "libelle": "Foncer vers le canot",
+        "passive": false,
+        "points": { "utilitarisme": 2, "empathie": -1 }
+      },
+      {
+        "id": "adolescent",
+        "libelle": "Hisser l'adolescent à bord",
+        "passive": false,
+        "points": { "empathie": 2, "utilitarisme": -1 }
+      }
+    ],
+    "jumeau": { "groupe": "visage-ou-nombre", "logique": { "canot": "A", "adolescent": "B" } },
+    "minuteur": null
+  },
+  {
+    "id": "repli",
+    "titre": "L'ordre de repli",
+    "texte": "Vous êtes pompier. Votre équipe fouille un entrepôt en feu quand votre chef ordonne par radio d'évacuer immédiatement : la toiture menace de s'effondrer. En descendant l'escalier, vous entendez une voix appeler à l'aide depuis l'étage. Personne d'autre ne l'a entendue. Remonter seul, c'est désobéir et peut-être y laisser la vie, sans être sûr de retrouver la personne à temps. Redescendre, c'est suivre la procédure et signaler la voix à votre chef, qui décidera.",
+    "options": [
+      {
+        "id": "remonter",
+        "libelle": "Remonter seul vers la voix",
+        "passive": false,
+        "points": { "autorite": -2, "risque": 2, "empathie": 2, "interventionnisme": 1 }
+      },
+      {
+        "id": "obeir",
+        "libelle": "Obéir et signaler la voix",
+        "passive": false,
+        "points": { "autorite": 2, "risque": -2, "empathie": -1, "interventionnisme": -1 }
+      }
+    ],
+    "minuteur": null
+  },
+  {
+    "id": "antidote",
+    "titre": "La dernière dose",
+    "texte": "Une intoxication grave frappe une station de montagne isolée par la neige. Vous êtes de garde à l'infirmerie et il ne vous reste qu'une seule dose d'antidote. Deux personnes en ont besoin, avec les mêmes chances de s'en sortir. L'une est le cuisinier qui, malgré les avertissements de son équipe, a servi un plat douteux pour ne rien gaspiller. L'autre est une cliente qui en a mangé. Aucun secours ne pourra monter avant demain matin.",
+    "options": [
+      {
+        "id": "cliente",
+        "libelle": "Soigner la cliente",
+        "passive": false,
+        "points": { "justice": 2, "principes": -1 }
+      },
+      {
+        "id": "hasard",
+        "libelle": "Tirer au sort entre les deux",
+        "passive": false,
+        "points": { "principes": 1, "justice": -2 }
+      }
+    ],
+    "jumeau": { "groupe": "responsabilite", "logique": { "cliente": "A", "hasard": "B" } },
+    "minuteur": null
+  },
+  {
+    "id": "rapport",
+    "titre": "Le rapport",
+    "texte": "Vous êtes ingénieur dans une entreprise qui fabrique des chauffe-eau. Vous découvrez qu'un défaut sur un modèle déjà vendu peut provoquer des intoxications mortelles. La direction a décidé de corriger discrètement la production, sans rappeler les appareils installés, et vous rappelle votre clause de confidentialité. Révéler l'affaire à la presse sauverait sans doute des vies, mais coûterait leur emploi à des centaines de vos collègues et vous exposerait à des poursuites.",
+    "options": [
+      {
+        "id": "reveler",
+        "libelle": "Révéler l'affaire à la presse",
+        "passive": false,
+        "points": { "principes": 2, "justice": 1, "utilitarisme": 1, "interventionnisme": 2, "loyaute": -2, "autorite": -2, "risque": 1 }
+      },
+      {
+        "id": "taire",
+        "libelle": "Vous taire",
+        "passive": true,
+        "points": { "principes": -1, "loyaute": 2, "autorite": 1, "interventionnisme": -2 }
+      }
+    ],
+    "minuteur": null
+  },
+  {
+    "id": "passerelle",
+    "titre": "La passerelle",
+    "texte": "Vous traversez une passerelle de cordes au-dessus d'un ravin avec trois autres randonneurs. Votre ami Malo, resté en arrière, a glissé : suspendu à la dernière section, il tire de tout son poids sur les cordes, qui commencent à céder. Vous pouvez trancher la corde de votre côté avec votre couteau : il tombera, mais la passerelle tiendra pour vous quatre. Si vous ne faites rien, elle risque de lâcher entièrement… ou de tenir assez longtemps pour qu'il remonte.",
+    "options": [
+      {
+        "id": "couper",
+        "libelle": "Trancher la corde",
+        "passive": false,
+        "points": { "utilitarisme": 2, "principes": -2, "interventionnisme": 2, "loyaute": -2, "risque": -2 }
+      },
+      {
+        "id": "rien",
+        "libelle": "Ne rien faire et tenir bon",
+        "passive": true,
+        "points": { "principes": 1, "loyaute": 1, "interventionnisme": -2, "risque": 2 }
+      }
+    ],
+    "minuteur": 15
+  }
+]

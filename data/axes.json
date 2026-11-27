@@ -1,0 +1,42 @@
+[
+  {
+    "id": "utilitarisme",
+    "nom": "Utilitarisme",
+    "description": "Cherche le meilleur bilan global et compte les vies en jeu."
+  },
+  {
+    "id": "principes",
+    "nom": "Principes moraux",
+    "description": "Refuse de franchir certaines limites (se servir d'une personne, mentir, trahir une promesse), même quand le bilan serait meilleur."
+  },
+  {
+    "id": "empathie",
+    "nom": "Empathie",
+    "description": "Touché par la souffrance d'une personne précise, même inconnue."
+  },
+  {
+    "id": "loyaute",
+    "nom": "Loyauté",
+    "description": "Protège ses proches et son groupe en priorité."
+  },
+  {
+    "id": "justice",
+    "nom": "Justice",
+    "description": "Tient compte du mérite et de la responsabilité de chacun."
+  },
+  {
+    "id": "autorite",
+    "nom": "Respect de l'autorité",
+    "description": "Suit les lois, les règles et les ordres."
+  },
+  {
+    "id": "interventionnisme",
+    "nom": "Interventionnisme",
+    "description": "Tendance à agir plutôt qu'à laisser les choses suivre leur cours."
+  },
+  {
+    "id": "risque",
+    "nom": "Prise de risque",
+    "description": "Accepte une issue incertaine si elle peut être meilleure."
+  }
+]

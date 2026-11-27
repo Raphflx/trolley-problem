@@ -1,0 +1,54 @@
+{
+  "seuils": { "eleve": 70, "faible": 30, "nombreAffiches": 3 },
+  "axes": {
+    "utilitarisme": {
+      "eleve": "Vous avez tendance à compter : quand plusieurs vies sont en jeu, le bilan d'ensemble pèse lourd dans vos décisions.",
+      "faible": "Le nombre de vies en jeu n'a pas été votre premier critère. D'autres considérations ont souvent primé sur le simple bilan."
+    },
+    "principes": {
+      "eleve": "Il y a des lignes que vous refusez de franchir, même pour un meilleur résultat : vous servir d'une personne, mentir, rompre une promesse.",
+      "faible": "Vous êtes prêt à franchir certaines limites morales si la situation le justifie à vos yeux. Pour vous, la fin compte souvent plus que les moyens."
+    },
+    "empathie": {
+      "eleve": "La souffrance d'une personne précise, sous vos yeux, vous touche fortement, même quand il s'agit d'un inconnu.",
+      "faible": "Vous avez tendance à garder une certaine distance avec les cas individuels, pour regarder la situation dans son ensemble."
+    },
+    "loyaute": {
+      "eleve": "Vos proches passent en premier. Quand il faut choisir, vous avez tendance à rester du côté des vôtres.",
+      "faible": "Les liens personnels n'ont pas beaucoup pesé dans vos choix : un proche et un inconnu ont souvent compté autant à vos yeux."
+    },
+    "justice": {
+      "eleve": "Vous tenez compte de la responsabilité de chacun : qui a provoqué la situation n'est pas, pour vous, un détail.",
+      "faible": "Vous avez tendance à ne pas faire de différence entre les personnes selon leurs fautes : face au danger, chacun compte autant."
+    },
+    "autorite": {
+      "eleve": "Les lois, les règlements et les ordres sont pour vous des repères importants, même dans les situations extrêmes.",
+      "faible": "Vous n'hésitez pas à vous écarter d'une règle ou d'un ordre quand il vous semble aller contre ce qu'il faut faire."
+    },
+    "interventionnisme": {
+      "eleve": "Quand vous pouvez changer le cours des choses, vous avez tendance à agir plutôt qu'à laisser faire.",
+      "faible": "Vous hésitez à intervenir dans le cours des événements : provoquer une issue vous semble plus lourd que la laisser arriver."
+    },
+    "risque": {
+      "eleve": "Une issue incertaine ne vous fait pas peur si elle peut être meilleure : vous êtes prêt à tenter votre chance.",
+      "faible": "Vous préférez une issue sûre, même moins bonne, à un pari dont vous ne maîtrisez pas le résultat."
+    }
+  },
+  "instinct": {
+    "titre": "Instinctif ou réfléchi",
+    "zones": [
+      { "max": 33, "texte": "Vous avez tranché vite, souvent dès la lecture terminée. Vos premières impressions semblent guider vos choix." },
+      { "max": 66, "texte": "Vous avez pris un temps de réflexion modéré : ni réponse immédiate, ni longue hésitation." },
+      { "max": 100, "texte": "Vous avez pris le temps de peser chaque situation avant de choisir, parfois longuement." }
+    ],
+    "absent": "Pas assez de réponses chronométrées pour situer votre rythme de décision."
+  },
+  "coherence": {
+    "titre": "Cohérence",
+    "zones": [
+      { "max": 49, "texte": "Face à des situations construites sur la même logique mais présentées autrement, vous avez souvent fait des choix différents. Le contexte et la façon de présenter les choses semblent beaucoup compter pour vous." },
+      { "max": 79, "texte": "Vous avez fait des choix assez semblables face à des situations construites sur la même logique, avec quelques écarts selon le contexte." },
+      { "max": 100, "texte": "Face à des situations construites sur la même logique mais présentées autrement, vous avez fait les mêmes choix. Vos critères semblent stables." }
+    ]
+  }
+}

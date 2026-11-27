@@ -46,6 +46,7 @@ Puis ouvrez [http://localhost:8000](http://localhost:8000) dans votre navigateur
 ├── data/           # dilemmes, axes, profils et textes (JSON)
 ├── lib/            # Chart.js
 ├── outils/         # outil de vérification et de simulation du barème (hors production)
+├── tests/          # tests des fonctions de calcul (hors production)
 └── CLAUDE.md       # spécifications détaillées du projet
 ```
 
@@ -57,9 +58,17 @@ Après chaque modification du barème, ouvrez `outils/verification.html` : il si
 
 Le format détaillé des fichiers et les règles de calcul sont décrits dans [CLAUDE.md](CLAUDE.md).
 
+## Tests
+
+Les fonctions de calcul (scores, normalisation, instinct, cohérence, profil) sont testées avec Node.js (version 18 ou plus), sans dépendance :
+
+```bash
+node --test
+```
+
 ## Mise en ligne
 
-Le jeu est un site 100 % statique : il suffit de copier les fichiers dans le dossier publié par le serveur web. Ne copiez pas `CLAUDE.md` ni le dossier `outils/` en production.
+Le jeu est un site 100 % statique : il suffit de copier les fichiers dans le dossier publié par le serveur web. Ne copiez pas `CLAUDE.md` ni les dossiers `outils/` et `tests/` en production.
 
 ## Évolutions prévues
 

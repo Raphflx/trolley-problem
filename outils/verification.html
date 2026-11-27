@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vérification du barème</title>
+  <style>
+    :root { --ok: #1f7a3a; --alerte: #b3261e; --bordure: #d6d9df; --doux: #5a6272; }
+    body { font-family: system-ui, sans-serif; margin: 0; padding: 1.5rem 1rem 3rem; max-width: 70rem; margin: 0 auto; color: #1d2330; background: #fafafa; line-height: 1.5; }
+    h1 { margin-top: 0; }
+    h2 { margin-top: 2.5rem; border-bottom: 1px solid var(--bordure); padding-bottom: 0.3rem; }
+    table { border-collapse: collapse; width: 100%; font-size: 0.92rem; margin: 0.5rem 0; background: #fff; }
+    th, td { border: 1px solid var(--bordure); padding: 0.35rem 0.6rem; text-align: left; vertical-align: top; }
+    th { background: #f0f2f5; }
+    td.n { text-align: right; font-variant-numeric: tabular-nums; }
+    .ok { color: var(--ok); font-weight: 600; }
+    .alerte { color: var(--alerte); font-weight: 600; }
+    tr.ligne-alerte td { background: #fdecea; }
+    .aide { color: var(--doux); font-size: 0.92rem; }
+    .resume { padding: 0.75rem 1rem; border-radius: 8px; background: #fff; border: 1px solid var(--bordure); }
+    .histo { display: flex; align-items: flex-end; gap: 2px; height: 40px; min-width: 160px; }
+    .histo span { flex: 1; background: #3a5ba0; min-height: 1px; }
+    .barre { display: inline-block; height: 10px; background: #3a5ba0; vertical-align: middle; margin-right: 0.4rem; }
+    label { font-weight: 600; }
+    input { font: inherit; width: 7rem; padding: 0.2rem 0.4rem; }
+    button { font: inherit; padding: 0.35rem 0.9rem; cursor: pointer; }
+    ul { padding-left: 1.2rem; }
+  </style>
+</head>
+<body>
+  <h1>Vérification du barème</h1>
+  <p class="aide">Outil interne (non lié depuis le jeu, à ne pas déployer). Lit <code>data/dilemmes.json</code>, <code>axes.json</code> et <code>profils.json</code>. Rechargez la page après chaque modification.</p>
+  <div id="resume" class="resume">Chargement…</div>
+
+  <h2>Format des dilemmes</h2>
+  <div id="format"></div>
+
+  <h2>Couverture des axes</h2>
+  <p class="aide">Alerte si un axe est touché par moins de 4 dilemmes.</p>
+  <div id="couverture"></div>
+
+  <h2>Paires d'axes à ne pas confondre</h2>
+  <p class="aide">Pour chaque option touchant au moins un des deux axes : les deux varient dans le même sens, en sens opposés, ou un seul varie. Alerte si la corrélation des points dépasse le seuil (les deux axes varient presque toujours ensemble).</p>
+  <div id="paires"></div>
+
+  <h2>Groupes de dilemmes jumeaux</h2>
+  <div id="jumeaux"></div>
+
+  <h2>Simulation de parties aléatoires</h2>
+  <p>
+    <label for="nb">Parties :</label> <input id="nb" type="number" value="1000" min="10" step="100">
+    <label for="graine">Graine :</label> <input id="graine" type="number" value="42">
+    <button id="relancer" type="button">Relancer</button>
+  </p>
+  <div id="simulation"></div>
+
+  <script type="module" src="verification.js"></script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+/* style.css — Dilemmes */
+
+:root {
+  --fond: #f7f6f2;
+  --fond-carte: #ffffff;
+  --texte: #1d2330;
+  --texte-doux: #4f5768;
+  --bordure: #d6d9df;
+  --accent: #3a5ba0;
+  --accent-texte: #ffffff;
+  --accent-survol: #2f4b86;
+  --option-fond: #eef1f7;
+  --option-survol: #dfe5f1;
+  --neutre: #5a6272;
+  --focus: #e0a100;
+  --rayon: 12px;
+  --ombre: 0 2px 12px rgb(0 0 0 / 0.06);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fond: #14171d;
+    --fond-carte: #1d2129;
+    --texte: #e8eaee;
+    --texte-doux: #b0b6c2;
+    --bordure: #363c48;
+    --accent: #7c9be0;
+    --accent-texte: #10131a;
+    --accent-survol: #9ab2ea;
+    --option-fond: #262c38;
+    --option-survol: #313848;
+    --neutre: #b0b6c2;
+    --ombre: none;
+    color-scheme: dark;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--fond);
+  color: var(--texte);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+main {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.ecran:focus { outline: none; }
+[hidden] { display: none !important; }
+
+.carte {
+  background: var(--fond-carte);
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  padding: 1.75rem 1.5rem;
+}
+
+.carte-centree { text-align: center; padding: 3rem 1.5rem; }
+
+h1, h2, h3 { line-height: 1.25; margin: 0 0 0.75rem; }
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.15rem; }
+
+.surtitre {
+  margin: 0 0 0.25rem;
+  color: var(--texte-doux);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.accroche { font-size: 1.2rem; margin: 0 0 0.5rem; }
+.duree { color: var(--texte-doux); margin: 0 0 2rem; }
+.aide { color: var(--texte-doux); font-size: 0.95rem; }
+
+code {
+  background: var(--option-fond);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* --- Boutons -------------------------------------------------------------- */
+
+.bouton {
+  font: inherit;
+  font-weight: 600;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  padding: 0.85rem 1.5rem;
+  cursor: pointer;
+  min-height: 3rem;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+.bouton:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.bouton:disabled { cursor: default; opacity: 0.7; }
+
+.bouton-principal { background: var(--accent); color: var(--accent-texte); }
+.bouton-principal:hover:not(:disabled) { background: var(--accent-survol); }
+
+.bouton-secondaire {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.bouton-secondaire:hover:not(:disabled) { background: var(--option-fond); }
+
+/* Toutes les options ont exactement le même style, y compris « ne rien faire ». */
+.bouton-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: var(--option-fond);
+  color: var(--texte);
+  border-color: var(--bordure);
+  font-weight: 600;
+}
+.bouton-option:hover:not(:disabled) {
+  background: var(--option-survol);
+  border-color: var(--accent);
+}
+
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+.actions-egales > .bouton { flex: 1 1 12rem; }
+
+/* --- Avertissement / formulaire ------------------------------------------ */
+
+.liste-avertissement { padding-left: 1.2rem; }
+.liste-avertissement li { margin-bottom: 0.75rem; }
+
+.champ { margin: 1.1rem 0; }
+.champ label { display: block; font-weight: 600; margin-bottom: 0.35rem; }
+.champ select {
+  width: 100%;
+  font: inherit;
+  padding: 0.7rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--bordure);
+  background: var(--fond-carte);
+  color: var(--texte);
+}
+.champ select:focus-visible { outline: 3px solid var(--focus); outline-offset: 1px; }
+
+/* --- Dilemme -------------------------------------------------------------- */
+
+.progression {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  color: var(--texte-doux);
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
+}
+.progression-barre {
+  flex: 1;
+  height: 6px;
+  background: var(--option-fond);
+  border-radius: 3px;
+  overflow: hidden;
+}
+#progression-remplissage {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+
+.texte-dilemme { font-size: 1.1rem; margin: 0 0 1.5rem; }
+
+.options { display: grid; gap: 0.75rem; }
+@media (min-width: 640px) {
+  .options { grid-template-columns: 1fr 1fr; }
+  .options-trois { grid-template-columns: 1fr; }
+  .bouton-option { text-align: center; }
+  .options-trois .bouton-option { text-align: left; }
+}
+
+/* Minuteur : couleur neutre, pour ne pas paniquer le joueur. */
+.minuteur {
+  border: 1px solid var(--bordure);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.25rem;
+  background: var(--option-fond);
+}
+.minuteur-annonce { margin: 0 0 0.6rem; font-size: 0.95rem; }
+.minuteur-ligne { display: flex; align-items: center; gap: 0.75rem; }
+.minuteur-barre {
+  flex: 1;
+  height: 8px;
+  background: var(--bordure);
+  border-radius: 4px;
+  overflow: hidden;
+}
+#minuteur-remplissage { height: 100%; background: var(--neutre); }
+.minuteur-secondes {
+  font-weight: 700;
+  min-width: 3ch;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Résultats ------------------------------------------------------------ */
+
+.description-profil { font-size: 1.05rem; }
+
+.radar-conteneur {
+  position: relative;
+  max-width: 32rem;
+  margin: 1.5rem auto 0.5rem;
+}
+
+.liste-scores {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  gap: 0.25rem 1.25rem;
+  font-size: 0.92rem;
+  color: var(--texte-doux);
+}
+.liste-scores li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dotted var(--bordure);
+  padding: 0.2rem 0;
+  cursor: help;
+}
+.liste-scores strong { color: var(--texte); font-variant-numeric: tabular-nums; }
+
+.bloc-resultat {
+  border-top: 1px solid var(--bordure);
+  padding-top: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+/* Curseur Instinctif / Réfléchi : aucune extrémité n'est « meilleure »,
+   donc piste neutre, sans dégradé rouge/vert. */
+.curseur { display: flex; align-items: center; gap: 0.75rem; font-size: 0.95rem; }
+.curseur-borne { color: var(--texte-doux); font-weight: 600; }
+.curseur-piste {
+  position: relative;
+  flex: 1;
+  height: 6px;
+  margin: 0 12px;
+  background: var(--bordure);
+  border-radius: 3px;
+}
+.curseur-pastille {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  margin: -11px 0 0 -11px;
+  border-radius: 50%;
+  background: var(--texte);
+  border: 3px solid var(--fond-carte);
+  box-shadow: 0 0 0 1px var(--texte);
+  transition: left 0.6s ease-out;
+}
+
+.jauge {
+  height: 12px;
+  background: var(--option-fond);
+  border: 1px solid var(--bordure);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.jauge-remplissage {
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.6s ease-out;
+}
+.jauge-valeur { font-variant-numeric: tabular-nums; }
+
+.textes-marques { padding-left: 1.2rem; margin: 0; }
+.textes-marques li { margin-bottom: 0.6rem; }
+
+/* --- Mobile --------------------------------------------------------------- */
+
+@media (max-width: 480px) {
+  main { padding: 0.75rem 0.75rem 2rem; }
+  .carte { padding: 1.25rem 1rem; }
+  .carte-centree { padding: 2rem 1rem; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.35rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}

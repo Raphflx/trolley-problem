@@ -1,0 +1,56 @@
+[
+  {
+    "id": "equilibre",
+    "nom": "L'Équilibré",
+    "description": "Aucune tendance ne domine nettement vos choix. Selon la situation, vous avez pesé tantôt les conséquences, tantôt les règles, tantôt les personnes en jeu. Cette souplesse vous permet de regarder chaque dilemme pour ce qu'il est, sans grille toute faite. Elle peut aussi rendre vos décisions plus difficiles à expliquer, y compris à vous-même.",
+    "condition": { "equilibre": true, "ecartMax": 25 }
+  },
+  {
+    "id": "stratege",
+    "nom": "Le Stratège",
+    "description": "Face à l'urgence, vous avez tendance à regarder le bilan d'ensemble et à agir pour l'améliorer. Laisser faire, quand on peut changer l'issue, vous semble déjà un choix. Vous acceptez de porter le poids d'une décision difficile si elle épargne davantage de vies. La question qui reste ouverte : jusqu'où ce calcul peut-il aller ?",
+    "condition": { "dominants": ["utilitarisme", "interventionnisme"] }
+  },
+  {
+    "id": "integre",
+    "nom": "L'Intègre",
+    "description": "Certaines limites comptent davantage pour vous que le résultat final. Vous avez tendance à refuser de vous servir d'une personne, de mentir ou de trahir une parole, même quand cela coûterait moins cher. Vous êtes aussi attentif à ce que chacun réponde de ses actes. Cette constance donne du poids à vos choix, au prix de décisions parfois douloureuses.",
+    "condition": { "dominants": ["principes", "justice"] }
+  },
+  {
+    "id": "protecteur",
+    "nom": "Le Protecteur",
+    "description": "Vos choix suivent souvent les liens qui vous unissent aux autres. Vous avez tendance à faire passer vos proches en premier et à être touché par la détresse de ceux que vous avez sous les yeux. Pour vous, une vie n'est pas un chiffre. Le revers possible : des inconnus plus nombreux, mais plus lointains, pèsent parfois moins dans la balance.",
+    "condition": { "dominants": ["loyaute", "empathie"] }
+  },
+  {
+    "id": "altruiste",
+    "nom": "L'Altruiste",
+    "description": "Vous cherchez à éviter le plus de souffrance possible, sans faire de différence entre vos proches et des inconnus. Vous êtes sensible au sort de chaque personne, tout en gardant à l'esprit le nombre de vies en jeu. Ce double regard rend certains dilemmes particulièrement durs : quand le visage et le nombre s'opposent, il faut trancher.",
+    "condition": { "dominants": ["empathie", "utilitarisme"] }
+  },
+  {
+    "id": "gardien",
+    "nom": "Le Gardien",
+    "description": "Vous accordez une grande place aux règles communes et à la responsabilité de chacun. Une loi, un ordre ou une procédure ne sont pas pour vous de simples obstacles : ils protègent contre l'arbitraire. Vous avez aussi tendance à tenir compte de qui a provoqué une situation. Reste à savoir ce que vous feriez face à une règle qui vous semblerait injuste.",
+    "condition": { "dominants": ["autorite", "justice"] }
+  },
+  {
+    "id": "audacieux",
+    "nom": "L'Audacieux",
+    "description": "Vous préférez agir plutôt que subir, et vous acceptez de tenter votre chance quand une meilleure issue est possible. L'incertitude ne vous paralyse pas. Cette énergie peut sauver des situations que d'autres jugeraient perdues. Elle peut aussi vous amener à parier là où une option plus sûre existait.",
+    "condition": { "dominants": ["risque", "interventionnisme"] }
+  },
+  {
+    "id": "fidele",
+    "nom": "Le Fidèle",
+    "description": "La parole donnée et les liens tissés comptent beaucoup pour vous. Vous avez tendance à rester du côté des vôtres et à tenir vos engagements, même quand la situation vous pousse à les rompre. On peut compter sur vous. La difficulté apparaît quand la loyauté envers un proche entre en conflit avec ce qui serait juste pour un inconnu.",
+    "condition": { "dominants": ["loyaute", "principes"] }
+  },
+  {
+    "id": "scrupuleux",
+    "nom": "Le Scrupuleux",
+    "description": "Vous avez tendance à respecter un cadre, qu'il vienne des règles communes ou de vos propres limites. Vous n'aimez pas franchir une ligne, même quand la situation semble l'exiger : une loi ou une promesse gardent pour vous leur poids dans l'urgence. Cette rigueur rend vos choix prévisibles et dignes de confiance. Elle peut devenir inconfortable le jour où la règle et votre conscience ne disent plus la même chose.",
+    "condition": { "dominants": ["autorite", "principes"] }
+  }
+]
