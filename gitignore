@@ -1,0 +1,38 @@
+# Systèmes d'exploitation
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# Éditeurs et IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Claude Code : réglages locaux (CLAUDE.md reste versionné)
+.claude/settings.local.json
+
+# Dépendances et outils éventuels
+node_modules/
+package-lock.json
+
+# Variables d'environnement et secrets (futures clés d'API pour l'option IA)
+.env
+.env.*
+*.key
+
+# Journaux et fichiers temporaires
+*.log
+*.tmp
+tmp/
+
+# Exports générés pendant les tests (images de profil, résultats de simulation)
+exports/
+*.png.tmp
+
+# Archives de déploiement
+*.zip
+*.tar.gz
+dist/
